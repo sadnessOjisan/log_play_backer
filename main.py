@@ -17,10 +17,10 @@ for log in logArray:
         if driver.current_url != LOCAL_HOST + log['url']: 
             driver.get(LOCAL_HOST + log['url'])
     elif log['eventType'] == 'CLICK': 
-        if driver.find_element_by_xpath("//*[@data-testid='"+log['target']+"']"): 
+        try: 
             target = driver.find_element_by_xpath("//*[@data-testid='"+log['target']+"']")
             target.click()
-        else: 
+        except: 
             driver.get(LOCAL_HOST + log['url'])
     elif log['eventType'] == 'BLUR':
         if driver.find_element_by_xpath("//*[@data-testid='"+log['target']+"']"): 
