@@ -1,6 +1,6 @@
 # LogPlayBacker
 
-log 再生機能のデモコード
+log 再生機能のデモコード. リファクタが間に合っておらずゴミが混じっており、ご容赦ください...
 
 ## 環境
 
@@ -24,4 +24,18 @@ $ pyenv local
 
 ```
 $ pip install -r requirements.txt
+```
+
+Server を立ち上げておく (server コードは[こちら](https://github.com/sadnessOjisan/Form-Museum))
+
+```
+$ yarn run start:local
+
+$ yarn run mock:local
+```
+
+selenium を実行
+
+```
+$ python main.py
 ```
