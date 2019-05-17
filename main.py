@@ -23,17 +23,18 @@ for log in logArray:
         except: 
             driver.get(LOCAL_HOST + log['url'])
     elif log['eventType'] == 'BLUR':
-        if driver.find_element_by_xpath("//*[@data-testid='"+log['target']+"']"): 
+        try: 
             inputValue = log['property']['inputValue']
             target = driver.find_element_by_xpath("//*[@data-testid='"+log['target']+"']")
             target.send_keys(inputValue)
-        else: 
+        except: 
             driver.get(LOCAL_HOST + log['url'])
     elif log['eventType'] == 'SUBMIT': 
-        if driver.find_element_by_xpath("//*[@data-testid='"+log['target']+"']"): 
+        try:
+            driver.find_element_by_xpath("//*[@data-testid='"+log['target']+"']")
             target = driver.find_element_by_xpath("//*[@data-testid='"+log['target']+"']")
             target.click()
-        else: 
+        except: 
             driver.get(LOCAL_HOST + log['url'])
     else: 
         driver.get(LOCAL_HOST + log['url'])
